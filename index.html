@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Notation Scanner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Logo Brand -->
+  <div class="logo-brand" id="logo-brand">
+    <div class="logo-circle"></div>
+    <div class="logo-text">
+      <div class="logo-name">Vilareal</div>
+      <div class="logo-nim">241011060047</div>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header-title">Notation</h1>
+      <p class="header-subtitle">Scientific Scanner</p>
+      <p class="header-desc">Deteksi notasi ilmiah dengan akurat</p>
+    </header>
+
+    <!-- Input Section -->
+    <section class="input-section">
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          id="input-field" 
+          class="input-field"
+          placeholder="Masukkan notasi..."
+          spellcheck="false"
+        >
+        <button class="btn-scan" id="btn-scan" onclick="runScanner()">
+          <span class="btn-icon">⚡</span>
+          <span class="btn-text">Scan</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Result Section -->
+    <section class="result-section" id="result-section">
+      <div class="result-card">
+        <div class="result-header">
+          <span class="result-label">Hasil</span>
+          <span class="result-badge" id="result-badge">—</span>
+        </div>
+        
+        <div class="result-content">
+          <div class="result-input" id="result-input">—</div>
+          <div class="result-decimal" id="result-decimal"></div>
+        </div>
+
+        <div class="verdict-box" id="verdict-box">
+          <div class="verdict-large" id="verdict-text">?</div>
+          <div class="verdict-status" id="verdict-status">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="examples-section">
+      <div class="examples-group">
+        <h3 class="examples-title examples-valid">✓ Valid</h3>
+        <div class="examples-chips">
+          <button class="chip chip-valid" onclick="tryExample('3e2')">3e2</button>
+          <button class="chip chip-valid" onclick="tryExample('7.51e-9')">7.51e-9</button>
+          <button class="chip chip-valid" onclick="tryExample('3.5e4')">3.5e4</button>
+          <button class="chip chip-valid" onclick="tryExample('-5.3e4')">-5.3e4</button>
+          <button class="chip chip-valid" onclick="tryExample('9.87e2')">9.87e2</button>
+        </div>
+      </div>
+
+      <div class="examples-group">
+        <h3 class="examples-title examples-invalid">✗ Tidak Valid</h3>
+        <div class="examples-chips">
+          <button class="chip chip-invalid" onclick="tryExample('300')">300</button>
+          <button class="chip chip-invalid" onclick="tryExample('4321.768')">4321.768</button>
+          <button class="chip chip-invalid" onclick="tryExample('0.2')">0.2</button>
+          <button class="chip chip-invalid" onclick="tryExample('10')">10</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Format Info -->
+    <section class="format-section">
+      <h3 class="format-title">Format</h3>
+      <div class="format-box">
+        <code class="format-code">a × 10<sup>n</sup> → ae<sup>n</sup></code>
+        <p class="format-desc">
+          Dimana <strong>1 ≤ |a| < 10</strong> dan <strong>n</strong> adalah bilangan bulat.
+          Contoh: <code>3.5e3</code>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal About -->
+  <div class="modal" id="modal-about">
+    <div class="modal-overlay" onclick="closeAbout()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeAbout()">✕</button>
+      <h2 class="modal-title">About Creator</h2>
+      
+      <div class="modal-body">
+        <div class="info-item">
+          <span class="info-label">Name</span>
+          <span class="info-value">Vilareal Karundeng</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Student ID</span>
+          <span class="info-value">241011060047</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Project</span>
+          <span class="info-value">Scientific Notation Scanner</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Description</span>
+          <span class="info-value">
+            Aplikasi modern untuk mendeteksi dan mengkonversi notasi ilmiah dengan antarmuka yang elegan.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
